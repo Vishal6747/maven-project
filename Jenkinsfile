@@ -17,5 +17,14 @@ pipeline
             }
             }
         }
+        stage('deploy package')
+        {
+           steps
+           {
+               withMaven(jdk: 'JAVA_HOME', maven: 'MVN_HOME') {
+                    sh 'mvn package'
+            }
+           } 
+        }
     }
 }
